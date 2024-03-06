@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+          Wynsayc
+        </title>
+        <style>
+            body {
+                background-color: wheat;
+
+            }
+
+            .container {
+                display: flex;
+                justify-content: center;
+                margin-top: 270px;
+                font-size: 2em;
+            }
+            #box1 {
+                width: 80px;
+                height: 40px;
+                background-color: forestgreen;
+                text-align: center;
+                margin-right: 10px;
+                cursor: pointer;
+                color:wheat;
+            }
+
+            
+            #box2 {
+                width: auto;
+                height: auto;
+                background-color: tomato;
+                text-align: center;
+                cursor: pointer;
+                color:wheat;
+            }
+
+            .design {
+                position: absolute;
+                left: 500px;
+                top: 210px;
+                width: auto;
+                height: auto;
+                font-size: 2em;
+                background-color: gold;
+            }
+        </style>
+    </head>
+    <body>
+
+     <div class="design" id="Test">
+        Waff Sorry😞, Will you accept my apology 
+     </div>
+        <div class="container">
+            <div class="box" id="box1">Yes</div>
+            <div class="box" id="box2">No</div>
+        </div>
+
+        <script>
+            let yes = document.getElementById("box1");
+            let no = document.getElementById("box2");
+            let ask = document.getElementById("Test");
+
+            no.addEventListener("mouseover", event => {
+                event.target.style.background = "Black";
+                no.innerHTML = "Sure??🥺"
+                box2.height = "auto";
+                box2.width = "auto";
+            })
+
+            no.addEventListener("mouseout", event => {
+                event.target.style.background = "tomato";
+                no.innerHTML = "No";
+            })
+
+
+            no.addEventListener("click", event => {
+yes.style.width = "100px";
+yes.style.height = "50px";
+yes.style.fontSize = "1.3em";
+
+no.addEventListener("click", event => {
+    yes.style.width = "200px";
+    yes.style.height = "100px";
+    yes.style.fontSize = "2.4em";
+              
+                
+            no.addEventListener("click", event => {
+                yes.style.width = "300px";
+                yes.style.height = "200px";
+                yes.style.fontSize = "4em";
+
+                no.addEventListener("click", event => {
+                    yes.style.width = "400px";
+                    yes.style.height = "300px";
+                    yes.style.fontSize = "5.5em";
+                })
+            })
+                            })
+            })
+
+            yes.addEventListener("click", event => {
+                no.style.display = "0px";
+                no.style.height = "0px";
+                yes.style.display = "0px";
+                yes.style.height = "0px";
+                ask.innerHTML = "yeheyyyyy!! Thank you Waff! again Im sorry kay ni tukar na pod ko , nangluod rakos mga panghitabo recently. Sorry haaaaa ";
+                ask.style.textAlign = "center";
+                
+                            })
+        </script>
+    </body>
+</html>
