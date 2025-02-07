@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Buttons</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    .question {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .button-container {
+      text-align: center;
+    }
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button.no {
+      background-color: #ff4d4d;
+      color: white;
+    }
+    button.yes {
+      background-color: #4caf50;
+      color: white;
+    }
+    .no-expanded {
+      padding: 20px 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="question">
+    <p id="p1">Will you be my Valentine?</p>
+    <img src="https://static.wikia.nocookie.net/8ac5c773-b3d6-4ad8-ac42-593ea326254c" style="width: 200px; height: 200px;" id="handsome">
+  </div>
+  <div class="button-container">
+    <button class="no">No</button>
+    <button class="yes">Yes</button>
+  </div>
+
+  <script>
+    const noButton = document.querySelector('.no');
+    const yesButton = document.querySelector('.yes');
+    let noClickCount = 0;
+
+    noButton.addEventListener('click', () => {
+      document.getElementById("handsome").src = "https://i.pinimg.com/736x/cf/9b/d3/cf9bd392f3defe99fced9dc84a7fc510.jpg";
+      noClickCount++;
+      noButton.classList.toggle('no-expanded');
+      noButton.style.padding = `${30 + noClickCount * 30}px ${30 + noClickCount * 30}px`;
+
+      if (noClickCount === 5) {
+        // Change "No" button to "Yes" button
+        document.getElementById("handsome").src = "https://media1.tenor.com/m/GV8ICPTo3WQAAAAd/bleh.gif";
+        noButton.textContent = 'Yes';
+        noButton.classList.remove('no');
+        noButton.classList.add('yes');
+        noButton.style.backgroundColor = '#4caf50';
+        noButton.style.color = 'white';
+
+        // Remove current event listener and add new functionality
+        noButton.replaceWith(noButton.cloneNode(true));
+        const yesButton = document.querySelector('.yes');
+        yesButton.addEventListener('click', () => {
+          document.getElementById("p1").innerHTML = "YIEEEEEEEEEEEEH";
+          document.getElementById("handsome").src = "https://i.pinimg.com/736x/b8/e4/fb/b8e4fb0a49160c4048e5683b2dbb2515.jpg";
+        });
+      }
+    });
+
+    yesButton.addEventListener('click', () => {
+      document.getElementById("p1").innerHTML = "YIEEEEEEEEEEEEH";
+      document.getElementById("handsome").src = "https://i.pinimg.com/736x/b8/e4/fb/b8e4fb0a49160c4048e5683b2dbb2515.jpg";
+    });
+  </script>
+</body>
+</html>
